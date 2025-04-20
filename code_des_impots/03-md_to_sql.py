@@ -578,7 +578,7 @@ def generate_sql_inserts(articles, structure_items, output_dir):
                 content = article['content'].replace("'", "''")
                 # Replace problematic characters that might cause truncation
                 content = content.replace('\\', '\\\\')  # Escape backslashes
-                content = content.replace('\n', ' ')     # Replace newlines with spaces
+                content = content.replace('\n', '\\n')     # Preserve newlines for SQL
                 content = content.replace('\r', '')      # Remove carriage returns
                 
                 # Use E prefix for escaping special characters and properly handle newlines

@@ -77,7 +77,7 @@ def clean_and_convert_to_markdown(input_file, output_file):
     content = re.sub(r'###### SECTION SECTION', r'###### SECTION', content)
     
     # Format articles with 7 hash marks (####### instead of ######)
-    content = re.sub(r'Article\s+(\d+\.\d+\.\d+)\.-\s*', r'####### Article \1.\n', content)
+    content = re.sub(r'Article\s+(\d+\.\d+\.\d+)\s*-\s*', r'####### Article \1.\n', content)
     
     # Write the output file
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -87,7 +87,7 @@ def clean_and_convert_to_markdown(input_file, output_file):
 
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    input_file = os.path.join(base_dir, "pdf", "code_des_impot_2025_extract.txt")
+    input_file = os.path.join(base_dir, "pdf", "code_des_impot_2025_extract_corrige.txt")
     output_file = os.path.join(base_dir, "pdf", "code_des_impot_2025_extract_clean.md")
     
     clean_and_convert_to_markdown(input_file, output_file)
